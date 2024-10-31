@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../task.dart';
 import '../../features/main/presentation/pages/main_screen.dart';
 
 class AppRouter {
@@ -13,11 +12,6 @@ class AppRouter {
         path: '/home',
         name: 'home',
         builder: (context, state) => MainScreen(),
-      ),
-      GoRoute(
-        path: '/HomeView',
-        name: 'HomeView',
-        builder: (context, state) => HomeView(),
       ),
     ],
     errorBuilder: (context, state) => Scaffold(

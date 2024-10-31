@@ -67,8 +67,12 @@ class Home extends StatelessWidget {
                   return GestureDetector(
                     onTap: () {
                       // GoRouter.of(context).go('/home');
+                      Navigator.of(context)
+                          .push(MaterialPageRoute(builder: (context) {
+                        return Matchdetailscreen(liveMatch: liveMatches[index]);
+                      }));
                     },
-                    child: liveMatchData(live: live),
+                    child: liveMatchData(width: 300, live: live),
                   );
                 },
               ),
@@ -229,14 +233,15 @@ class liveMatchData extends StatelessWidget {
   const liveMatchData({
     super.key,
     required this.live,
+    required this.width,
   });
-
+  final double width;
   final LiveMatch live;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 300,
+      width: width,
       margin: const EdgeInsets.only(right: 10),
       decoration: BoxDecoration(
         image: live.backgroundImage,
